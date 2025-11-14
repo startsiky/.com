@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: 'Intro', sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+/* Телефон */
+#intro {
+  width: 100%;
+  height: 80vh; /* ближе кверху */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0;
+  margin-top: -15px; /* убрали ещё 15px */
+}
+
+#phone {
+  width: 70%;
+  max-width: 330px;
+  margin-top: 0;
+  padding-top: 0;
+  opacity: 0;
+  animation: appear 1.2s ease-out forwards;
+}
+
+@keyframes appear {
+  0% { opacity: 0; transform: scale(1.25); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Улетание телефона */
+.shrink-up {
+  animation: shrinkUp 1s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes shrinkUp {
+  0% { transform: scale(1) translateY(0); opacity: 1; }
+  40% { transform: scale(0.75) translateY(-15vh); opacity: 1; }
+  100% { transform: scale(0.35) translateY(-100vh); opacity: 0; }
+}
+
+/* Появление контента */
+#content * {
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.show {
+  animation: appearUp 0.7s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes appearUp {
+  0% { opacity: 0; transform: translateY(25px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Описание */
+.glass-box {
+  margin: 0 auto;
+  margin-top: -20px;
+  max-width: 350px;
+  font-size: 1.2rem; /* увеличено */
+  line-height: 1.45;
+  padding: 16px;
+  color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  border: 1.6px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+}
+
+/* Жёлтый текст */
+.yellow {
+  color: #ffd900;
+  font-weight: 900;
+}
+
+/* ТАП-кнопка */
+#gift {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tapBtn {
+  width: 80%;
+  max-width: 380px;
+  border-radius: 18px;
+  transition: transform 0.15s ease;
+  transform: translateZ(0);
+}
+
+/* Счётчик */
+#tapCounter {
+  margin-top: 8px;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #ffd900;
+}
+
+/* Кнопки */
+.buttons {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 28px;
+}
+
+.btn {
+  background: linear-gradient(145deg, rgba(255,217,0,0.18), rgba(255,217,0,0.05));
+  border: 2px solid #ffd900;
+  padding: 14px;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #ffd900;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.25s ease;
+  box-shadow: 0 0 14px rgba(255,217,0,0.25);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Анимация подарка */
+.gift-animate {
+  animation: giftReveal 0.6s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes giftReveal {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+  padding-bottom: 70px;
+  font-size: 1rem;
+}
+
+/* Мобилки */
+@media (max-width: 480px) {
+  #phone { width: 80%; }
+  .glass-box { font-size: 1.1rem; }
+  #tapBtn { width: 85%; }
+  .btn { font-size: 1.05rem; }
+}
